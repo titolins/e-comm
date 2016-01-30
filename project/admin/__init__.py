@@ -6,7 +6,8 @@ bp = Blueprint(
         'admin',
         __name__,
         template_folder='templates',
-        static_folder='static')
+        static_folder='static',
+        )
 
 @bp.before_request
 def admin_required():

@@ -1,5 +1,5 @@
 from flask import Flask
-#from instance.secret import install_secret_key
+from instance.secret import install_secret_key
 
 #from flask_bootstrap import Bootstrap
 #from flask_wtf.csrf import CsrfProtect
@@ -7,10 +7,12 @@ from flask import Flask
 #from sqlalchemy import create_engine
 #from sqlalchemy.orm import sessionmaker
 # import models
+import project.admin
 
 app = Flask(__name__)
+app.register_blueprint(admin.bp, url_prefix='/admin')
 
-#install_secret_key(app)
+install_secret_key(app)
 
 #Bootstrap(app)
 #CsrfProtect(app)

@@ -47,12 +47,17 @@
                             <li>
                                 <a href="{{ url_for('login') }}">Login</a>
                             </li>
-                            {% else %}
+                        {% else %}
                             <li>
                                 <a href="{{ url_for('showUser', user_id=session.user_id) }}">Profile</a>
                             </li>
                             <li>
                                 <a href="{{ url_for('logout') }}">Logout</a>
+                            </li>
+                        {% endif %}
+                        {% if session.user_access_level == 1 %}
+                            <li>
+                                <a href="{{ url_for('admin.showPanel') }}">Admin</a>
                             </li>
                         {% endif %}
                     </ul>

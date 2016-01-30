@@ -78,7 +78,9 @@ class UserFactory(object):
     def getGender(self):
         return ['m', 'f'][self.count % 2]
 
-    def getNewUser(self):
+    def getNewUser(self, access_level=0, randomize_al=False):
+        if randomize_al:
+            access_level = self.getIndex()
         return User(
             id_ = self.getId(),
             email = self.emails[self.getIndex()],
@@ -86,8 +88,14 @@ class UserFactory(object):
             name = self.names[self.getIndex()],
             gender = self.getGender(),
             addresses = self.addresses[self.getIndex()],
-            access_level = self.getIndex()
+            access_level = access_level,
         )
+
+    def getRegularUser(self):
+        return self.getNewUser(access_level=0)
+
+    def getAdminUser(self):
+        return self.getNewUser(access_level=1)
 
 
 class User(object):

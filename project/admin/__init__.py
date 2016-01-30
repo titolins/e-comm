@@ -20,3 +20,7 @@ def admin_required():
 def showPanel():
     return render_template('admin/index.html')
 
+@bp.route('/<int:user_id>/profile')
+def profile(user_id):
+    return "<h1>To be admin profile page</h1>"
+

@@ -5,8 +5,11 @@
     Home
 {% endblock %}
 
+{% block header %}
+    {% include 'partials/carousel.html' %}
+{% endblock %}
+
 {% block content %}
-    <h1>Welcome</h1>
-    <p>Under construction...</p>
+    <h1 class="h1" style="border-bottom: 1px black">Welcome</h1>
 {% endblock %}
 

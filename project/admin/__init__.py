@@ -1,5 +1,5 @@
 from flask import Blueprint
-from flask import render_template, redirect, request, abort
+from flask import render_template, redirect, request, abort, url_for
 from flask import session as login_session
 
 bp = Blueprint(
@@ -13,8 +13,21 @@ bp = Blueprint(
 def admin_required():
     ''' Function to restrict access to admin area.
     '''
-    if not login_session['user_access_level'] == 1:
-        return abort(403)
+    if 'username' in login_session:
+        if login_session['user_access_level'] != 1 and \
+                request.endpoint != 'admin.login':
+            return abort(403)
+        elif login_session['user_access_level'] == 1 and \
+                request.endpoint == 'admin.login':
+            return redirect(url_for('admin.showPanel'))
+        return
+    if request.endpoint != 'admin.login':
+        return redirect(url_for('admin.login'))
+
+
+@bp.route('/')
+def login():
+    return render_template('admin/login.html')
 
 @bp.route('/panel')
 def showPanel():

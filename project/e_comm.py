@@ -10,7 +10,7 @@ from flask import (
 from project import app #, session
 
 # import forms and models
-from project.models import admin, users, user
+from project.models import admin, users, user, categories
 
 from flask import session as login_session
 
@@ -18,7 +18,7 @@ import requests
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', categories=categories)
 
 #########################################################
 ###################### decorators #######################

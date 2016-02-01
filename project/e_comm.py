@@ -73,16 +73,22 @@ def admin_required(f):
 # User           #
 ##################
 
-@app.route('/register')
-def showUser():
+# Create
+@app.route('/user/new')
+def register():
     return "<p>To be user registration</p>"
 
+# Read
+@app.route('/user/<int:user_id>')
+def showUser():
+    return "<p>To be user page</p>"
 
+# Update
 @app.route('/user/<int:user_id>/edit')
 def editUser(user_id):
     return "<p>To be user {} edit page</p>".format(user_id)
 
-
+# Delete
 @app.route('/user/<int:user_id>/delete')
 def deleteUser(user_id):
     return "<p>To be user {} delete page</p>".format(user_id)
@@ -90,6 +96,26 @@ def deleteUser(user_id):
 
 ##################
 # end User       #
+##################
+
+##################
+# Category       #
+##################
+
+# Create
+# only the admin can create new categories
+
+# Read
+@app.route('/category/<int:category_id>')
+def showCategory(category_id):
+    return "<p>To be category {} page".format(category_id)
+
+# Update
+
+# Delete
+
+##################
+# end Category   #
 ##################
 
 #########################################################

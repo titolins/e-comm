@@ -26,15 +26,18 @@ class CategoryFactory(object):
                 'Toalha de mesa': 7,
                 'Acessorio': 3,
         }
+        self.picture = "http://placehold.it/400x300"
 
     def getCategories(self):
-        return [Category(c_id=v, name=k) for k,v in self.names.items()]
+        return [Category(c_id=v, name=k, picture=self.picture) \
+                for k,v in self.names.items()]
 
 
 class Category(object):
-    def __init__(self, c_id, name):
+    def __init__(self, c_id, name, picture):
         self.id_ = c_id
         self.name = name
+        self.picture = picture
 
 if __name__ == '__main__':
     cf = CategoryFactory()

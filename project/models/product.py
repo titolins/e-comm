@@ -24,6 +24,8 @@ class ProductFactory(object):
                 'FEITO COM PERCAL 7000 FIOS DA ÍNDIA ORIENTAL',
                 'IDEAL PARA CASAS DE CAMPO, SÍTIOS, FAZENDAS ETC.')
         self.price = 450.00
+        self.thumbnail = "http://placehold.it/400x300"
+        self.background_picture = "http://placehold.it/1920x1080"
 
     def getProducts(self):
         return [
@@ -31,16 +33,21 @@ class ProductFactory(object):
                     id_ = i,
                     name = self.name,
                     description = self.description,
-                    price = self.price) \
+                    price = self.price,
+                    thumbnail = self.thumbnail,
+                    background_picture = self.background_picture) \
                 for i in range(8)]
 
 
 class Product(object):
-    def __init__(self, id_, name, description, price):
+    def __init__(self, id_, name, description, price, thumbnail,
+            background_picture):
         self.id_ = id_
         self.name = name
         self.description = description
         self.price = price
+        self.thumbnail = thumbnail
+        self.background_picture = background_picture
 
 
 if __name__ == '__main__':

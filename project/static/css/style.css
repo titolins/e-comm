@@ -1,4 +1,3 @@
-
 body, html {
     height: 100%;
     width: 100%;
@@ -12,6 +11,13 @@ a, a:link, a:hover, a:visited, a:active {
 
 #navbar-wrapper {
     margin-bottom: 0;
+}
+
+/*
+ * settings all header's width to 100%
+*/
+#header, #myCarousel, .item, .carousel-inner, .header-img {
+    width:100%;
 }
 
 .panel {

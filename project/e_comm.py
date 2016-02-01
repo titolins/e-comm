@@ -9,8 +9,8 @@ from flask import (
 
 from project import app #, session
 
-# import forms and models
-from project.models import admin, users, user, categories
+# import forms and models --> development only
+from project.models import admin, users, user, categories, products
 
 from flask import session as login_session
 

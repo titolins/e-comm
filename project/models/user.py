@@ -16,7 +16,6 @@
 ########################################################################
 
 class UserFactory(object):
-
     def __init__(self, max_users=2):
         self._max_users = max_users
         self.count = 0

@@ -106,9 +106,12 @@ def deleteUser(user_id):
 # only the admin can create new categories
 
 # Read
-@app.route('/category/<int:category_id>')
+@app.route('/catalog/<int:category_id>')
 def showCategory(category_id):
-    return "<p>To be category {} page".format(category_id)
+    return render_template(
+            'category.html',
+            category=getCategoryById(category_id),
+            products=products)
 
 # Update
 
@@ -116,6 +119,27 @@ def showCategory(category_id):
 
 ##################
 # end Category   #
+##################
+
+##################
+# Product        #
+##################
+
+# Create
+# only admin will be able to create products
+
+# Read
+@app.route('/catalog/<int:category_id>/<int:product_id>')
+def showProduct(category_id, product_id):
+    return "<p>To be product {0}, category {1} page".format(product_id,
+            category_id)
+
+# Update
+
+# Delete
+
+##################
+# end Product    #
 ##################
 
 #########################################################
@@ -175,6 +199,11 @@ def logAdminUser():
     login_session['username'] = admin.name
     login_session['email'] = admin.name
     return redirect(url_for('index'))
+
+def getCategoryById(category_id):
+    for category in categories:
+        if category.id_ == category_id:
+            return category
 
 #########################################################
 ################# end development code ##################

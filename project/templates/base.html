@@ -67,26 +67,7 @@
             <!-- /.container -->
         </nav>
         <!-- Page content -->
-        {% block header %} {% endblock %}
-        <div class="container" id="page-content-wrapper">
-            <div class="row" id="page-content">
-                {% with messages = get_flashed_messages() %}
-                    {% if messages %}
-                        <div class="col-xs-12 alert alert-success">
-                            <ul>
-                                {% for message in messages %}
-                                    <li> <strong>{{ message }}</strong></li>
-                                {% endfor %}
-                            </ul>
-                        </div>
-                    {% endif %}
-                {% endwith %}
-                {% block content %} {% endblock %}
-            </div>
-            <!-- /.row -->
-        </div>
-        <!-- /.container -->
-
+        {% block page_content %} {% endblock %}
         <!-- Footer -->
         <div id="footer-wrapper">
             <footer class="container">

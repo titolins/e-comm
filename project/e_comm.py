@@ -131,8 +131,7 @@ def showCategory(category_id):
 # Read
 @app.route('/catalog/<int:category_id>/<int:product_id>')
 def showProduct(category_id, product_id):
-    return "<p>To be product {0}, category {1} page".format(product_id,
-            category_id)
+    return render_template('product.html', product = products[0])
 
 # Update
 
